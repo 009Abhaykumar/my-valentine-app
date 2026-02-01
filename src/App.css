@@ -4,86 +4,128 @@
 
 body {
   margin: 0;
-  background: linear-gradient(135deg, #ffafcc, #ffc8dd);
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", system-ui, sans-serif;
+  background: linear-gradient(135deg, #ffb3c6, #ffc8dd);
 }
 
-.container {
-  height: 100vh;
+.page {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 1;
+  padding: 20px;
 }
 
+/* CARD */
 .card {
-  background: white;
-  padding: 40px;
-  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 36px 26px 42px;
+  border-radius: 28px;
+  width: 100%;
+  max-width: 380px;
   text-align: center;
-  width: 330px;
-  position: relative;
-  animation: pop 0.5s ease;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  animation: pop 0.4s ease;
 }
 
 .emoji {
   font-size: 52px;
+  margin-bottom: 10px;
 }
 
+h1 {
+  font-size: 22px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* BUTTONS */
 .buttons {
-  margin-top: 30px;
   position: relative;
-  height: 150px;
+  height: 160px;
 }
 
 button {
-  padding: 12px 30px;
-  border-radius: 30px;
   border: none;
+  border-radius: 999px;
+  padding: 14px 36px;
   font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
 }
 
 .yes {
-  background: #ff4d6d;
+  background: linear-gradient(135deg, #ff4d6d, #ff85a1);
   color: white;
   animation: pulse 1.2s infinite;
+  box-shadow: 0 12px 24px rgba(255, 77, 109, 0.45);
 }
 
 .no {
-  background: #ddd;
   position: absolute;
+  background: #eaeaea;
+  color: #333;
   transition: all 0.15s ease;
 }
 
+/* LOVE SCREEN */
 .love {
   text-align: center;
-  animation: pop 0.6s ease;
+  animation: pop 0.5s ease;
 }
 
-.hearts {
-  font-size: 30px;
+.love h1 {
+  font-size: 36px;
+  color: #ff2f92;
+}
+
+.love p {
+  font-size: 18px;
+  color: #444;
+}
+
+.pulse-hearts {
+  font-size: 32px;
+  margin-top: 12px;
   animation: float 1.5s infinite;
 }
 
-.confetti {
-  font-size: 32px;
-  margin-top: 10px;
-  animation: pop 0.8s ease;
-}
-
+/* ANIMATIONS */
 @keyframes pop {
-  from { transform: scale(0.5); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0); }
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

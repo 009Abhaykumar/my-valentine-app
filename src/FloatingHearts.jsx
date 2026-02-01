@@ -2,19 +2,19 @@ import { useEffect, useState } from "react";
 import FloatingHearts from "./FloatingHearts";
 import "./App.css";
 
-const HER_NAME = "Ananya ❤️";
+const HER_NAME = "Nirali";
 
 export default function App() {
   const [yesClicked, setYesClicked] = useState(false);
   const [noPos, setNoPos] = useState({ top: "65%", left: "50%" });
   const [noScale, setNoScale] = useState(1);
 
-  const moveNoButton = () => {
+  const moveNo = () => {
     setNoPos({
       top: Math.random() * 70 + "%",
       left: Math.random() * 70 + "%",
     });
-    setNoScale((prev) => Math.max(prev - 0.08, 0.4));
+    setNoScale((s) => Math.max(s - 0.08, 0.4));
   };
 
   useEffect(() => {
@@ -49,8 +49,8 @@ export default function App() {
                   left: noPos.left,
                   transform: `scale(${noScale})`,
                 }}
-                onMouseMove={moveNoButton}
-                onTouchStart={moveNoButton}
+                onMouseMove={moveNo}
+                onTouchStart={moveNo}
               >
                 No
               </button>
@@ -59,7 +59,7 @@ export default function App() {
         ) : (
           <div className="love">
             <h1>I love you sooo much 💗</h1>
-            <p>You’re my forever Valentine 🫶</p>
+            <p>You are my forever Valentine 🫶</p>
             <div className="pulse-hearts">💖 💗 💞 💓</div>
           </div>
         )}
