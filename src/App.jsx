@@ -13,7 +13,7 @@ export default function App() {
       top: Math.random() * 70 + "%",
       left: Math.random() * 70 + "%",
     });
-    setNoScale(prev => Math.max(prev - 0.1, 0.4));
+    setNoScale((p) => Math.max(p - 0.08, 0.4));
   };
 
   useEffect(() => {
@@ -24,11 +24,16 @@ export default function App() {
   }, [yesClicked]);
 
   return (
-    <div className="container">
+    <div className="page">
       {!yesClicked ? (
         <div className="card">
-          <div className="emoji">🐶❤️</div>
-          <h1>{HER_NAME}, will you be my Valentine?</h1>
+          <div className="emoji-row">
+            🐶💗
+          </div>
+
+          <h1 className="title">
+            {HER_NAME}, will you be my Valentine?
+          </h1>
 
           <div className="buttons">
             <button className="yes" onClick={() => setYesClicked(true)}>
@@ -51,10 +56,9 @@ export default function App() {
         </div>
       ) : (
         <div className="love">
-          <h1>I love you soooo much ❤️</h1>
-          <p>You just made me the happiest 💕</p>
-          <div className="hearts">💗 💓 💞 💕 💖</div>
-          <div className="confetti">🎉 🎊 🎉 🎊</div>
+          <h1>I love you sooo much 💕</h1>
+          <p>You’re my favorite person 🫶</p>
+          <div className="hearts">💖 💗 💞 💓</div>
         </div>
       )}
     </div>

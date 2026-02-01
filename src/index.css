@@ -1,68 +1,124 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background: linear-gradient(135deg, #ffb3c6, #ffc8dd);
+  font-family: "Poppins", system-ui, sans-serif;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 380px;
+  padding: 32px 24px 40px;
+  border-radius: 26px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  animation: pop 0.4s ease;
+}
+
+.emoji-row {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 22px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* BUTTONS */
+.buttons {
+  position: relative;
+  height: 150px;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 34px;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.yes {
+  background: #ff4d6d;
+  color: white;
+  box-shadow: 0 10px 20px rgba(255,77,109,0.4);
+  animation: pulse 1.2s infinite;
+}
+
+.no {
+  position: absolute;
+  background: #e5e5e5;
+  color: #333;
+  transition: all 0.15s ease;
+}
+
+/* LOVE SCREEN */
+.love {
+  text-align: center;
+  animation: pop 0.5s ease;
+}
+
+.love h1 {
+  font-size: 34px;
+  color: #ff2f92;
+  margin-bottom: 10px;
+}
+
+.love p {
+  font-size: 18px;
+  color: #444;
+}
+
+.hearts {
+  margin-top: 14px;
+  font-size: 30px;
+  animation: float 1.6s infinite;
+}
+
+/* ANIMATIONS */
+@keyframes pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
   }
-  a:hover {
-    color: #747bff;
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+  100% { transform: scale(1); }
+}
+
+/* DESKTOP TWEAK */
+@media (min-width: 768px) {
+  .title {
+    font-size: 24px;
   }
 }
