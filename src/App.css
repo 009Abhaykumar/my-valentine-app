@@ -8,6 +8,7 @@ body {
   background: linear-gradient(135deg, #ffb3c6, #ffc8dd);
 }
 
+/* PAGE */
 .page {
   min-height: 100vh;
   display: flex;
@@ -20,8 +21,8 @@ body {
 
 /* CARD */
 .card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
   padding: 36px 26px 42px;
   border-radius: 28px;
   width: 100%;
@@ -46,7 +47,7 @@ h1 {
 /* BUTTONS */
 .buttons {
   position: relative;
-  height: 160px;
+  height: 170px;
 }
 
 button {
@@ -69,7 +70,7 @@ button {
   position: absolute;
   background: #eaeaea;
   color: #333;
-  transition: all 0.15s ease;
+  transition: top 0.2s ease, left 0.2s ease, transform 0.2s ease;
 }
 
 /* LOVE SCREEN */

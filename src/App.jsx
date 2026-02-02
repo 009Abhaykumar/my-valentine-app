@@ -10,23 +10,34 @@ export default function App() {
   const [noScale, setNoScale] = useState(1);
 
   const moveNoButton = () => {
+    const safeTop = Math.random() * 60 + 10;   // 10% – 70%
+    const safeLeft = Math.random() * 60 + 10; // avoid edges
+
+    // ❌ Avoid YES button zone (center bottom)
+    if (safeTop > 40 && safeLeft > 30 && safeLeft < 70) {
+      return moveNoButton();
+    }
+
     setNoPos({
-      top: Math.random() * 70 + "%",
-      left: Math.random() * 70 + "%",
+      top: `${safeTop}%`,
+      left: `${safeLeft}%`,
     });
-    setNoScale((prev) => Math.max(prev - 0.08, 0.4));
+
+    // 🔒 Limit shrinking
+    setNoScale((prev) => Math.max(prev - 0.06, 0.65));
   };
 
   useEffect(() => {
     if (yesClicked) {
       const audio = new Audio("/music.mp3");
-      audio.play();
+      audio.volume = 0.7;
+      audio.play().catch(() => {});
     }
   }, [yesClicked]);
 
   return (
     <>
-      <FloatingHearts />
+      <FloatingHearts explode={yesClicked} />
 
       <div className="page">
         {!yesClicked ? (
