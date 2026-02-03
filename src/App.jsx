@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import FloatingHearts from "./FloatingHearts";
 import "./App.css";
 
-const HER_NAME = "Ananya ❤️";
+const HER_NAME = "Vash ❤️";
 
 export default function App() {
   const [yesClicked, setYesClicked] = useState(false);
